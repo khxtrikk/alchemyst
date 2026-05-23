@@ -383,3 +383,9 @@ target
 
 .vscode
 .mypy*
+.terraform/
+*.tfstate
+*.tfstate.*
+*.pem
+.terraform.lock.hcl
+WRITEUP.md

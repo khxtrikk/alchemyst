@@ -91,6 +91,11 @@ resource "aws_instance" "inference_worker" {
   associate_public_ip_address = false
   key_name                    = aws_key_pair.generated.key_name
 
+  root_block_device {
+    volume_size = 30
+    volume_type = "gp3"
+  }
+
   user_data = templatefile("${path.module}/user_data/inference.sh", {
     repository_url = var.repository_url,
     gateway_ip     = aws_instance.gateway.private_ip
