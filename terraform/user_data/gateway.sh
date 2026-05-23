@@ -3,7 +3,11 @@ set -ex
 
 # Update and install dependencies
 apt-get update
-apt-get install -y git curl nodejs npm jq unzip
+apt-get install -y git curl jq unzip
+
+# Install modern Node.js 20.x
+curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+apt-get install -y nodejs
 
 # Install iii engine
 curl -fsSL https://install.iii.dev/iii/main/install.sh | BIN_DIR=/usr/local/bin sh
