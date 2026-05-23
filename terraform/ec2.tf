@@ -31,6 +31,17 @@ resource "local_file" "private_key" {
   file_permission = "0400"
 }
 
+# Fix for Windows: Reset file permissions before destroy so Terraform can successfully delete the file
+resource "null_resource" "pem_destroy_fix" {
+  depends_on = [local_file.private_key]
+
+  provisioner "local-exec" {
+    when       = destroy
+    command    = "icacls iii-auto-key.pem /reset"
+    on_failure = continue
+  }
+}
+
 # Gateway VM (Public Subnet)
 resource "aws_instance" "gateway" {
   ami                         = data.aws_ami.ubuntu.id
