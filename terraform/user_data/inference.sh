@@ -10,6 +10,10 @@ cd /opt
 git clone ${repository_url} quickstart
 cd quickstart/workers/inference-worker
 
+# Fix the version parsing crash between transformers and gguf
+sed -i 's/^gguf.*/gguf==0.9.1/' requirements.txt
+sed -i 's/^transformers.*/transformers==4.41.2/' requirements.txt
+
 # Setup Python environment
 python3 -m venv venv
 source venv/bin/activate
