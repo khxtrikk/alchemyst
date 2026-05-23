@@ -6,7 +6,7 @@ apt-get update
 apt-get install -y git curl nodejs npm
 
 # Install iii engine
-curl -fsSL https://install.iii.dev/iii/main/install.sh | bash
+BIN_DIR=/usr/local/bin curl -fsSL https://install.iii.dev/iii/main/install.sh | sh
 
 # Clone the repository
 cd /opt
@@ -24,7 +24,7 @@ Type=simple
 User=root
 WorkingDirectory=/opt/quickstart
 # Ensure config.yaml is updated to bind to 0.0.0.0 and no worker_paths
-ExecStart=/root/.iii/bin/iii --config config.yaml
+ExecStart=/usr/local/bin/iii --config config.yaml
 Restart=always
 RestartSec=3
 
