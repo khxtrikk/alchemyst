@@ -25,7 +25,7 @@ Type=simple
 User=root
 WorkingDirectory=/opt/quickstart/workers/caller-worker
 Environment="III_URL=ws://${gateway_ip}:49134"
-ExecStart=/opt/quickstart/workers/caller-worker/node_modules/.bin/tsx src/worker.ts
+ExecStart=/usr/local/bin/tsx src/worker.ts
 Restart=always
 RestartSec=3
 
