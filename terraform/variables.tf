@@ -21,6 +21,7 @@ variable "private_subnet_cidr" {
 variable "key_name" {
   description = "Name of an existing AWS KeyPair to enable SSH access to the instances"
   type        = string
+  default     = ""
 }
 
 variable "instance_type_gateway" {
