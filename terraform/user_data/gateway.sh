@@ -3,10 +3,10 @@ set -ex
 
 # Update and install dependencies
 apt-get update
-apt-get install -y git curl nodejs npm
+apt-get install -y git curl nodejs npm jq unzip
 
 # Install iii engine
-BIN_DIR=/usr/local/bin curl -fsSL https://install.iii.dev/iii/main/install.sh | sh
+curl -fsSL https://install.iii.dev/iii/main/install.sh | BIN_DIR=/usr/local/bin sh
 
 # Clone the repository
 cd /opt
