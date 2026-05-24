@@ -70,5 +70,3 @@ curl -X POST http://<GATEWAY_PUBLIC_IP>:3111/v1/chat/completions \
   "success": "You've connected two workers and they're interoperating seamlessly, now let's add a few more workers to expand this project's functionality."
 }
 ```
-
-*See `WRITEUP.md` for details on production hardening and scaling strategies.*
